@@ -1,7 +1,7 @@
 {
-  "name": "tiny-automa-redux",
+  "name": "tinyrx",
   "version": "1.0.0",
-  "description": "a tiny library to handle redux in react",
+  "description": "a tiny library to extend reacts reduce hooks",
   "main": "index.js",
   "scripts": {
     "test": "react-scripts test",
@@ -15,7 +15,8 @@
   "devDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "eslintConfig": {
     "extends": "react-app"
