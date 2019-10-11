@@ -1,5 +1,12 @@
 # TinyRX (react-redux)
 
+[![npm version](https://badge.fury.io/js/tinyrx.svg)](https://badge.fury.io/js/tinyrx)
+[![test](https://david-dm.org/stevendixondev/tinyrx.svg)](https://david-dm.org/stevendixondev/tinyrx)
+[![Known Vulnerabilities](https://snyk.io/test/github/stevendixondev/tinyrx/badge.svg)](https://snyk.io/test/github/stevendixondev/tinyrx)
+[![build passing](https://travis-ci.com/StevenDixonDev/tinyrx.svg?branch=master)](https://travis-ci.com/StevenDixonDev/Open-Web-Shell)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Sourcegraph](https://sourcegraph.com/github.com/StevenDixonDev/tinyrx/-/badge.svg)](https://sourcegraph.com/github.com/StevenDixonDev/tinyrx?badge)
+
 :pill: TinyRX is an interface library to add middleware and React-Redux like reducing to Reacts hook system.
 
 ## What does tinyRX do
