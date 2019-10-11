@@ -1,0 +1,6 @@
+src/__tests__
+src/docs
+docs
+styleguide
+webpack.config.js
+lib
