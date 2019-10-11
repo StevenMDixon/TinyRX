@@ -1,8 +1,8 @@
 {
   "name": "tinyrx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a tiny library to extend reacts reduce hooks",
-  "main": "lib/index.js",
+  "main": "./lib/tinyrx.js",
   "scripts": {
     "test": "react-scripts test",
     "start": "react-scripts start",
@@ -14,8 +14,10 @@
   ],
   "author": "StevenDixonDev",
   "license": "ISC",
+  "dependencies": {
+    "react": "^16.8.6"
+  },
   "devDependencies": {
-    "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "redux-thunk": "^2.3.0",
