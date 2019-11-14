@@ -5,9 +5,9 @@ module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
     path: path.resolve(__dirname, './lib/'),
-    filename: 'tinyrx.js',
+    filename: 'index.js',
     library: '',
-    libraryTarget: 'commonjs'
+    libraryTarget: 'commonjs2'
   },
   externals: [nodeExternals()],
   module: {

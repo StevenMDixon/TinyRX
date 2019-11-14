@@ -1,6 +1,6 @@
 import React, { useReducer, useContext, useState } from "react";
 import { render } from "react-dom";
-import { useMiddleWare, context, combineReducers } from "../src/index";
+import { useMiddleWare, combineReducers } from "../src/index";
 import thunk from "redux-thunk";
 import BookComponent from "./bookComponent";
 
