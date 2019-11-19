@@ -1,6 +1,7 @@
+
+
 function useMiddleWare(middleware, context) {
   let cur = -1;
-
   const getState = () => context.state;
   const { dispatch } = context;
 
@@ -12,7 +13,7 @@ function useMiddleWare(middleware, context) {
     return middleware[cur]({ dispatch, getState })(next)(action);
   }
 
-  return next;
+  return { state: context.state, dispatch: next };
 }
 
 export default useMiddleWare;

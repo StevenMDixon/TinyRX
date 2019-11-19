@@ -24,11 +24,11 @@ Adding TinyRX to Your Project is simple!
 
 ```JavaScript
 
-import {useMiddleWare, context, combineReducers} from 'tinyrx';
+import {useMiddleWare, combineReducers} from 'tinyrx';
 
 ```
 
-Out of the box tinyRX proves a context for your useContext hook, however feel free to define your own!
+TinyRX no longer provides context, its much easier to create your own.
 
 ### Setup
 
@@ -58,13 +58,13 @@ Note that the name of the keys in combine reducers must match the initial state 
 
 ```JavaScript
 // combine reducers combines both Todos and Books together
-const Reducers = combineReducers({Todos: todoReducer, Books: bookReducer});
+const rootReducer = combineReducers({Todos: todoReducer, Books: bookReducer});
 // warning just like with redux if both reducers have the same Key or Type both will be affected
+// create context using react
+const AppContext = React.createContext(null);
 
 function App () {
-  const AppContext = context;
-  const [state, dispatch] = useReducer(Reducers, {Books: [], Todos: []});
-
+  const [state, dispatch] = useReducer(rootReducer, {Books: [], Todos: []});
   return (
     <div>
       <AppContext.Provider value={{state, dispatch}}>
@@ -80,7 +80,7 @@ function App () {
 ```JavaScript
 function TodoComponent() {
   // useContext provides state and the dispatch function to your components
-  const {state, dispatch} = useContext(context);
+  const {state, dispatch} = useContext(AppContext);
   const [input, setInput] = useState("");
   function AddTodo(e){
     dispatch({type: 'ADD_TODO', payload: input})
@@ -111,16 +111,27 @@ The dispatch passed to context must be changed to use the function returned from
 function App () {
   const AppContext = context;
   const [state, dispatch] = useReducer(Reducers, {Loaded: false});
-  const middle = useMiddleWare([thunk], {dispatch, state});
-  const testAsync = e =>{middle(fetchPosts())};
+
   return (
     <div>
-      <AppContext.Provider value={{state, dispatch: middle}}>
-        <button onClick={testAsync}>Test async</button>
-        {state.Loaded? <p>Loading</p>: <p>Loaded</p>}
+      <AppContext.Provider value={useMiddleWare([thunk], { state, dispatch })}>
+        <Loader />
       </AppContext.Provider>
     </div>
   )
+}
+
+function Loader() {
+  const { state, dispatch } = useContext(context);
+  const testAsync = e => {
+    dispatch(fetchPosts());
+  };
+  return (
+    <div>
+      {!state.Loaded ? <p>loaded</p> : <p>...loading</p>}
+      <button onClick={testAsync}>Test</button>
+    </div>
+  );
 }
 
 function fetchPosts() {
@@ -140,10 +151,6 @@ function fetchPosts() {
 }
 
 ```
-
-
-
-
 
 ### Depends
 

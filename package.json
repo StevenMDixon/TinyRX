@@ -1,9 +1,11 @@
 {
   "name": "tinyrx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a tiny library to extend reacts reduce hooks",
   "main": "./lib/index.js",
   "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack --mode=production",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
